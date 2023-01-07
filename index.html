@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        a {
+            padding: 10px;
+            background-color: blue;
+            color: wheat;
+            text-decoration: none;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+</head>
+<body>
+    <video id="webcam" autoplay playsinine width="600"></video>
+    <canvas id="canvas"> </canvas>
+    <a onclick="takePicture()"> click pic</a>
+
+
+
+    <script>
+        const webcamElement = document.getElementById("webcam");
+        const canvaElement = document.getElementById("canvas");
+        const webcam = new Webcam(webcamElement,"user",canvaElement);
+
+        webcam.start()
+
+
+        function takePicture(){
+            let picture = webcam.snap();
+            document.querySelector("a").href = picture
+        }
+
+    </script>
+
+</body>
+</html>
